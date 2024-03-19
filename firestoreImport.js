@@ -1,6 +1,6 @@
 // Imports
 import { initializeFirebaseApp, restore } from 'firestore-export-import'
-import { firebaseConfig } from './src/config/firebase.js'
+import firebaseConfig from './src/config/firebase.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
