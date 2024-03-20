@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import sourceData from '@/data.json'
+
 import { findById, upsert } from '../helpers'
 export default createStore({
-  state: { ...sourceData, authId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2' },
+  state: { authId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2' },
   getters: {
     authUser: (state) => {
       const user = findById(state.users, state.authId)
