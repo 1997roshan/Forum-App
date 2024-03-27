@@ -2,7 +2,14 @@ import { createStore } from 'vuex'
 
 import { findById, upsert } from '../helpers'
 export default createStore({
-  state: { authId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2' },
+  state: {
+    categories: [],
+    forums: [],
+    threads: [],
+    posts: [],
+    users: [],
+    authId: '7uVPJS9GHoftN58Z2MXCYDqmNAh2'
+  },
   getters: {
     authUser: (state) => {
       const user = findById(state.users, state.authId)
@@ -76,9 +83,10 @@ export default createStore({
       //   state.threads.push(thread)
       // }
     },
-    setUser(state, { user, userId }) {
-      const userIndex = findById(state.users, userId)
-      state.users[userIndex] = user
+    setUser(state, { user }) {
+      upsert(state.users, user)
+      // const userIndex = findById(state.users, userId)
+      // state.users[userIndex] = user
     },
     appendPostToThread(state, { postId, threadId }) {
       // const thread = state.threads.find((thread) => thread.id === threadId) //the code below is the replacement for this one working with findById

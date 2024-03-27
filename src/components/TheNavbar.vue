@@ -26,7 +26,7 @@ export default {
     <!-- use .navbar-open to open nav -->
     <nav class="navbar">
       <ul>
-        <li class="navbar-user">
+        <li v-if="authUser" class="navbar-user">
           <RouterLink :to="{ name: 'Profile' }">
             <img class="avatar-small" :src="authUser.avatar" alt="" />
             <span>
