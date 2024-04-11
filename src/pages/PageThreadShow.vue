@@ -16,7 +16,7 @@
 <script>
 import PostList from '@/components/PostList.vue'
 import PostEditor from '@/components/PostEditor.vue'
-import firebase from 'firebase/compat/app'
+import { db } from '@/utils/firebase'
 export default {
   props: {
     id: {
@@ -49,7 +49,7 @@ export default {
   created() {
     //fetch data
     console.log('this is created')
-    firebase.firestore
+    db.firestore
       .collection('threads')
       .doc(this.id)
       .onSnapshot((doc) => {
